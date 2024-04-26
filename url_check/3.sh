@@ -1,4 +1,5 @@
 #!/bin/bash
+# check response code for list of sites from sites.yml (file in current directory)
 
 sites_list=$(cat sites.yml)
 

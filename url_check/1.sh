@@ -1,4 +1,5 @@
 #!/bin/bash
+# check 1 url response with 'bash 1.sh <https://example.com/>'
 
 url=$1
 
