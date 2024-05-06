@@ -3,10 +3,10 @@
 
 ### FILL IN THE PARAMETRS
 
-backup_directory='/home/rusakov/backup/data/'
+backup_directory='/root/backup/data/'
 backup_archive_name=backup_$(date +%Y%m%d_%H%M).tar.gz
 
-ssh_privat_key_path='/home/rusakov/.ssh/backup'
+ssh_privat_key_path='/root/.ssh/backup' # for connecting to remote server through ssh
 remote_user=root
 remote_ip=109.207.173.55
 remote_backup_directory='/root/backups'
@@ -20,8 +20,8 @@ rsync -e "ssh -i ${ssh_privat_key_path}" --remove-source-files ${backup_director
 
 
 
-# example of cron job for every day running this script
-# 0 1 * * * bash /home/rusakov/backup/backup_to_remote_linux.sh
+# example of cron job for current server for every day running this script
+# 0 1 * * * bash /root/backup/backup_to_remote_linux.sh
 
 # example of cron job for remote server to delete 1 time a day old backup archives (older than 7 days)
 # 0 1 * * * find /root/backups -type f -mtime +7 -delete
