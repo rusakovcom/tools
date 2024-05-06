@@ -1,18 +1,27 @@
 #!/bin/bash 
-# script for backup directory on Linux to remote server with rsync (through ssh), for test and debug you can try to run all three commands manually
+# script for making tar.gz archive-backup of the directory with sending through rsync to remote server. 
+
+### FILL IN THE PARAMETRS
+
+backup_directory='/home/rusakov/backup/data/'
+backup_archive_name=backup_$(date +%Y%m%d_%H%M).tar.gz
+
+ssh_privat_key_path='/home/rusakov/.ssh/backup'
+remote_user=root
+remote_ip=109.207.173.55
+remote_backup_directory='/root/backups'
+
+### BACKUP
+
+# create temporary archive
+tar -czvf ${backup_directory}${backup_archive_name} ${backup_directory}
+# send to remote server with deleting temporary archive
+rsync -e "ssh -i ${ssh_privat_key_path}" --remove-source-files ${backup_directory}${backup_archive_name} ${remote_user}@${remote_ip}:${remote_backup_directory}
 
 
 
-# create compressed archive backup (/home/rusakov/backup/data_archives/backup_$(date +%Y%m%d_%H%M).tar.gz) of directory with data (/home/rusakov/backup/data)
-tar -czvf /home/rusakov/backup/data_archives/backup_$(date +%Y%m%d_%H%M).tar.gz /home/rusakov/backup/data
-
-# delete old compressed backup (in /home/rusakov/backup/data_archives/) for example, older than 7 days
-find /home/rusakov/backup/data_archives -type f -mtime +7 -delete
-
-# rsync transferring of actual compressed backups (/home/rusakov/backup/data_archives/) to remote server through ssh with special key
-rsync -avz --delete -e "ssh -i /home/rusakov/.ssh/backup" /home/rusakov/backup/data_archives/ root@<ip_of_remote>:/root/remote_data_archives/
-
-
-
-# example of cron job for every day backup to remote server
+# example of cron job for every day running this script
 # 0 1 * * * bash /home/rusakov/backup/backup_to_remote_linux.sh
+
+# example of cron job for remote server to delete 1 time a day old backup archives (older than 7 days)
+# 0 1 * * * find /root/backups -type f -mtime +7 -delete
