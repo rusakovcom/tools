@@ -1,17 +1,22 @@
-# Config to show list with everything in /usr/share/nginx/html; (for downloading files from browser)
-server {
-    listen 80;
-    server_name example.com; # Change to your domain name or IP address
+events {
+    worker_connections 1024;
+}
 
-    root /usr/share/nginx/html;
-    index index.html index.htm;
+http {
+    server {
+        listen 80;
+        server_name example.com; # Change to your domain name or IP address
 
-    location / {
-        autoindex on; # Enable directory listing
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+
+        location / {
+            autoindex on; # Enable directory listing
+        }
+
+        # Optional: Customize the appearance of the directory listing
+        # location ~ /\.ht {
+        #     deny all;
+        # }
     }
-
-    # Optional: Customize the appearance of the directory listing
-    # location ~ /\.ht {
-    #     deny all;
-    # }
 }
