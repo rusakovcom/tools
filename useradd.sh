@@ -1,7 +1,8 @@
 #!/bin/bash
 # Add user to Oracle Linux 8/9 with wheel and docker groups, with ssh key.
-# chmod +x useradd.sh
-# bash useradd.sh "my.name" "ssh-ed25519 key"
+
+# wget https://raw.githubusercontent.com/rusakovcom/tools/main/useradd.sh
+# bash useradd.sh "newuser.name" "ssh-ed25519 key"
 
 USER_NAME="$1"
 SSH_KEY="$2"
