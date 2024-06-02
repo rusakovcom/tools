@@ -11,4 +11,4 @@ while true; do
 done
 
 # download script 
-# wget wget https://raw.githubusercontent.com/rusakovcom/tools/main/url_check/2.sh
+# wget https://raw.githubusercontent.com/rusakovcom/tools/main/url_check/2.sh
