@@ -1,5 +1,5 @@
 #!/bin/bash
-# ongoing verification of response code with 'bash 4.sh <https://example.com/> <interval in seconds>' with writing logs to availability.log in current dir
+# ongoing verification of response code with 'bash 4.sh <https://example.com/> <interval in seconds>' with writing logs to availability.log in the script directory
 
 url=$1
 interval=$2
@@ -10,3 +10,4 @@ while true; do
     sleep $interval
 done
 
+# nohup bash /path_to_script/url_check/4.sh https://google.com/ 300 &
