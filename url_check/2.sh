@@ -12,3 +12,6 @@ done
 
 # download script 
 # wget https://raw.githubusercontent.com/rusakovcom/tools/main/url_check/2.sh
+
+# run logs writing to file
+# nohup bash /path/to/script/2.sh https://example.com/ 60 >> /path/to/log/availability.log 2>&1
