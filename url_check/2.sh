@@ -9,3 +9,6 @@ while true; do
     echo "$response_code - $url - $(date "+%D %T")"
     sleep $interval
 done
+
+# download script 
+# curl -O https://raw.githubusercontent.com/rusakovcom/tools/url_check/2.sh
