@@ -2,7 +2,7 @@
 
 # Step 1: Download useradd.sh script
 echo "Downloading useradd.sh script..."
-curl -O https://raw.githubusercontent.com/rusakovcom/tools/main/useradd.sh
+curl -O https://raw.githubusercontent.com/rusakovcom/tools/main/useradd_bash/useradd.sh
 
 # Step 2: Add multiple users with their keys
 while read -r username key; do
