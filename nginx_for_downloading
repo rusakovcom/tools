@@ -1,4 +1,4 @@
-# docker run -d -p 80:80 --name share -v ./storage:/usr/share/nginx/html -v ./nginx.conf:/etc/nginx/nginx.conf nginx:stable
+# docker run -d -p 80:80 --name file-storage -v ./storage:/usr/share/nginx/html -v ./nginx.conf:/etc/nginx/nginx.conf nginx:stable
 
 events {
     worker_connections 1024;
