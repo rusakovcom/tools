@@ -1,5 +1,6 @@
 #!/bin/bash
 # Tested on Oracle Linux 8/9
+# curl -O https://raw.githubusercontent.com/rusakovcom/tools/main/install_gui_on_cli_linux.sh
 
 # Update packages
 yum update -y
