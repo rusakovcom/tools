@@ -8,7 +8,7 @@ backup_archive_name=backup_$(date +%Y%m%d_%H%M).tar.gz
 
 ssh_privat_key_path='/root/.ssh/backup' # for connecting to remote server through ssh
 remote_user=root
-remote_ip=109.207.173.55
+remote_ip=<ip>
 remote_backup_directory='/root/backups'
 
 ### BACKUP
